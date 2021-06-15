@@ -40,7 +40,7 @@ const App = () => {
       </form>
 
       {result.map(book => (
-        <a href={book.volumeInfo.previewLink}>
+        <a target="_blank" href={book.volumeInfo.previewLink}>
           <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
         </a>
       ))}
