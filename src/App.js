@@ -41,6 +41,9 @@ const App = () => {
 
       {result.map(book => (
         <a target="_blank" href={book.volumeInfo.previewLink}>
+          <h4>{book.volumeInfo.title}</h4>
+          <h6>{book.volumeInfo.authors}</h6>
+          <h6>{book.volumeInfo.publisher}</h6>
           <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
         </a>
       ))}
