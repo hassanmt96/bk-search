@@ -40,7 +40,9 @@ const App = () => {
       </form>
 
       {result.map(book => (
-        <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
+        <a href={book.volumeInfo.previewLink}>
+          <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
+        </a>
       ))}
     </div>
   )
