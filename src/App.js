@@ -10,6 +10,9 @@ const App = () => {
   const [apiKey, setApiKey] = useState("AIzaSyBesfl57VKlcLdSi8qE3T7CBx-nwRhDNzs")
 
 
+  const [readingList, setReadingList] = useState([])
+
+
   const handleChange = (e) => {
 
     const book = e.target.value;
@@ -47,6 +50,9 @@ const App = () => {
           <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
         </a>
       ))}
+      <div>
+        <h2>Reading List</h2>
+      </div>
     </div>
   )
 }
