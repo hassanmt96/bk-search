@@ -21,7 +21,9 @@ const App = () => {
 
     e.preventDefault();
 
-    console.log(book);
+    axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + apiKey + "&maxResults=5").then(data => {
+      console.log(data);
+    })
 
 
   }
