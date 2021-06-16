@@ -1,16 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import AddReadingList from './components/AddReadingList'
 
 const App = () => {
 
   const [book, setBook] = useState("");
+
 
   const [result, setResult] = useState([]);
 
   const [apiKey, setApiKey] = useState("AIzaSyBesfl57VKlcLdSi8qE3T7CBx-nwRhDNzs")
 
 
-  const [readingList, setReadingList] = useState([])
+
 
 
   const handleChange = (e) => {
@@ -32,8 +34,12 @@ const App = () => {
 
   }
 
+  // const addReading = (book) => {
+  //   const newReadingList = [...]
+  // }
+
   return (
-    <div class="container">
+    <div class="container-fluid">
       <h1>Google Books Search</h1>
       <form onSubmit={handleSubmit}>
         <div class="form-group">
@@ -48,10 +54,14 @@ const App = () => {
           <h6>{book.volumeInfo.authors}</h6>
           <h6>{book.volumeInfo.publisher}</h6>
           <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
+          <AddReadingList />
         </a>
       ))}
+
+      {/* <ReadingList /> */}
       <div>
         <h2>Reading List</h2>
+        <a></a>
       </div>
     </div>
   )
