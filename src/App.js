@@ -2,7 +2,28 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import AddReadingList from './components/AddReadingList'
 
+function useLocalState(key, initial) {
+  const [value, setValue] = useState(() => {
+    if (typeof window !== "undefined") {
+      const saved = window.localStorage.getItem(key);
+      if (saved !== null) {
+        return JSON.parse(saved);
+      }
+    }
+
+    return initial;
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem(key, JSON.stringify(value));
+  }, [value]);
+
+  return [value, setValue];
+}
+
 const App = () => {
+
+  const [value, setValue] = useLocalState("", "");
 
   const [book, setBook] = useState("");
 
@@ -34,9 +55,6 @@ const App = () => {
 
   }
 
-  // const addReading = (book) => {
-  //   const newReadingList = [...]
-  // }
 
   return (
     <div class="container-fluid">
@@ -61,7 +79,7 @@ const App = () => {
       {/* <ReadingList /> */}
       <div>
         <h2>Reading List</h2>
-        <a></a>
+        <div onChange={(e) => setValue(e.target)} />
       </div>
     </div>
   )
