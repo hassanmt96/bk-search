@@ -1,9 +1,7 @@
+![google books](public/google-books.png)
+
 <h1 align="center">
-  <br>
-  <a href="https://books.google.com/"><img src="https://raw.githubusercontent.com/hassanmt96/bk-search/src/img/google-books.png" alt="Google Books" width="200"></a>
-  <br>
-  Google Book Search
-  <br>
+Google Books Search
 </h1>
 
 <h4 align="center">A minimal book searching application utilzing the <a href="https://developers.google.com/books" target="_blank">Google Books API</a>.</h4>
@@ -15,7 +13,7 @@
   <a href="#credits">Credits</a> •
 </p>
 
-![screenshot](https://raw.githubusercontent.com/hassanmt96/bk-search/src/img/book-search.gif)
+![screenshot](public/book-search.gif)
 
 ## Key Features
 
