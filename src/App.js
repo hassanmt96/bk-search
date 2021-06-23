@@ -27,12 +27,9 @@ const App = () => {
 
   const [book, setBook] = useState("");
 
-
   const [result, setResult] = useState([]);
 
   const [apiKey, setApiKey] = useState("AIzaSyBesfl57VKlcLdSi8qE3T7CBx-nwRhDNzs")
-
-
 
 
 
