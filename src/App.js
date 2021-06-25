@@ -52,6 +52,11 @@ const App = () => {
 
   }
 
+  const Button = ({ name, handleClick }) => {
+    return (
+      <input className="btn btn danger" type="submit" value={name} onClick={handleClick} />
+    );
+  }
 
   return (
     <div class="container-fluid">
@@ -59,7 +64,7 @@ const App = () => {
       <form onSubmit={handleSubmit}>
         <div class="form-group">
           <input type="text" onChange={handleChange} className="form-control mt-10" placeholder="I'm a bookworm."></input>
-          <button type="submit" className="btn btn danger">Search</button>
+          <Button name='look for a book' />
         </div>
       </form>
 
