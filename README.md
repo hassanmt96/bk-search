@@ -7,9 +7,7 @@ Google Books Search
 
 <p align="center">
   <a href="#key-features">Main Features</a> •
-  <a href="#how-to-use">How To Use</a> •
-  <a href="#download">Download</a> •
-  <a href="#credits">Credits</a> •
+  <a href="#how-to-use">How To Use</a> 
 </p>
 
 ![screenshot](public/book-search.gif)
