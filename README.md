@@ -1,5 +1,4 @@
-![google books](public/google-books.png)
-
+<img align="center" src="public/google-books.png" alt="Google  Books">
 <h1 align="center">
 Google Books Search
 </h1>
@@ -22,7 +21,7 @@ Google Books Search
 
 ## How To Use
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. Personally I like to use [yarn](https://yarnpkg.com/) because it tends to load a bit faster on my system. From your command line:
 
 ```bash
 # Clone this repository
@@ -34,18 +33,25 @@ $ cd bk-search
 # Install dependencies
 $ npm install
 
-# Run the app
+# Run the application
 $ npm start
+
+# Test the application
+
+$ npm test
+
+
 ```
 
-Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
+Note: The commands for yarn are very similar to npm. Instead of `npm install`, you can also enter `yarn`, to start -> `yarn start`, to test -> `yarn test` for the following commands mentioned. You can also If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
 
 ## Testing
 
-This application uses Jest for testing purposes:
+This application uses Jest & Enzyme for testing purposes:
 
 ## Technologies
 
 - [Node.js](https://nodejs.org/)
 - [Jest](https://jestjs.io/)
 - [React](https://reactjs.org/)
+- [Enzyme](https://enzymejs.github.io/enzyme/)
