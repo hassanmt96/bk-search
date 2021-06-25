@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import axios from 'axios';
+import {
+  InputGroup,
+  Input,
+  InputGroupAddon,
+  Button,
+  Spinner
+} from 'reactstrap'
 import AddReadingList from './components/AddReadingList'
 
 function useLocalState(key, initial) {
@@ -23,32 +30,34 @@ function useLocalState(key, initial) {
 
 const App = () => {
 
+  const [maxResults, setMaxResults] = useState(5);
+  const [startIndex, setStartIndex] = useState(1);
+  const [query, setQuery] = useState('');
+  const [loading, setLoading] = useState(false)
+
   const [value, setValue] = useLocalState("", "");
-
   const [book, setBook] = useState("");
-
   const [result, setResult] = useState([]);
 
-  const [apiKey, setApiKey] = useState("AIzaSyBesfl57VKlcLdSi8qE3T7CBx-nwRhDNzs")
 
-
-
-  const handleChange = (e) => {
-
-    const book = e.target.value;
-    setBook(book)
-
-  }
 
   const handleSubmit = (e) => {
+    setLoading(true);
+    // e.preventDefault();
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=${maxResults}&startIndex=${startIndex}`
+    )
+      .then(res => {
+        console.log(res.data.items)
+        setResult(res.data.items)
+      })
 
-    e.preventDefault();
 
-    axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + apiKey + "&maxResults=5").then(data => {
-      console.log(data.data.items)
-      setResult(data.data.items)
-    })
+    const handleChange = (e) => {
 
+      const book = e.target.value;
+      setBook(book)
+
+    }
 
   }
 
