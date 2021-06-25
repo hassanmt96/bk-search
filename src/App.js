@@ -24,12 +24,12 @@ function useLocalState(key, initial) {
 const App = () => {
 
   const [value, setValue] = useLocalState("", "");
-
-  const [book, setBook] = useState("");
-
+  const [book, setBook] = useState(" ");
   const [result, setResult] = useState([]);
-
   const [apiKey, setApiKey] = useState("AIzaSyBesfl57VKlcLdSi8qE3T7CBx-nwRhDNzs")
+
+  const [loading, setLoading] = useState(false);
+
 
 
 
@@ -41,13 +41,17 @@ const App = () => {
   }
 
   const handleSubmit = (e) => {
-
+    setLoading(true)
     e.preventDefault();
 
     axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + apiKey + "&maxResults=5").then(data => {
       console.log(data.data.items)
       setResult(data.data.items)
-    })
+    }).catch(err => {
+      setLoading(true);
+      console.log(err.response);
+    }
+    )
 
 
   }
@@ -60,7 +64,7 @@ const App = () => {
 
   return (
     <div class="container-fluid">
-      <h1>Google Books Search</h1>
+      <h1 className='display-2 text-center'>Google Books Search</h1>
       <form onSubmit={handleSubmit}>
         <div class="form-group">
           <input type="text" onChange={handleChange} className="form-control mt-10" placeholder="I'm a bookworm."></input>
@@ -80,7 +84,7 @@ const App = () => {
 
       {/* <ReadingList /> */}
       <div>
-        <h2>Reading List</h2>
+        <h2 className='display-4 text-center mb-4'>Reading List</h2>
         <div onChange={(e) => setValue(e.target)} />
       </div>
     </div>
